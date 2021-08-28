@@ -1,0 +1,69 @@
+<h2> Container Cadastro</h2>
+<hr>
+
+<form #myForm="ngForm" (ngSubmit)="submitForm(myForm)" >  <!-- ngForm pega todos os atributos do formulário e passa para #myForm -->
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Cliente:</label>
+    <div class="col-6">
+      <input  name="nm_Cliente"  class="form-control" ngModel required maxlength="50">
+
+      <div class="invalid-feedback">   <!-- Bootstrap mensagem de invalido form ira aparecer o span-->
+        <span>Nome do cliente é obrigatório</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Nº Container:</label>
+    <div class="col-6">
+      <input name="cd_Container"   class="form-control" ngModel required mask="SSSS0000000" placeholder="(4 letras e 7 números. Ex: TEST1234567">
+
+      <div class="invalid-feedback">   <!-- Bootstrap mensagem de invalido form ira aparecer o span-->
+        <span>Numero do Container é Obrigatório</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Tipo:</label>
+    <div class="col-6">
+      <select  name="ds_Tipo"  class="form-control" ngModel required>
+
+      <option value="VINTE">20</option>
+      <option value="QUARENTA">40</option>
+      </select>
+
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Status:</label>
+    <div class="col-sm-6">
+      <select  name="ds_Status"    class="form-control" ngModel required>
+
+      <option value="CHEIO">Cheio</option>
+      <option value="VAZIO">Vazio</option>
+      </select>
+
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Categoria:</label>
+    <div class="col-6">
+      <select  name="ds_Categoria"  class="form-control"  ngModel required>
+
+      <option value="IMPORTACAO">Importação</option>
+      <option value="EXPORTACAO">Exportação</option>
+      </select>
+    </div>
+  </div>
+
+
+  <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary mr-2">Save</button>
+  <button [routerLink]="['/container']" class="btn btn-secondary">Back</button>
+
+</form>
+
+
